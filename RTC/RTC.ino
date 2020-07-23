@@ -23,11 +23,11 @@ void setup() {
   Serial.begin(9600);
   Serial.println("Setting RTC Date and Time");
   //to clear previous registers
-  //rtc.initClock();
+  rtc.initClock();
   //set date (day, weekday, month, century(1=19, 0=20), year(0-99)
-  //rtc.setDate(2, 6, 2, 0, 20);
+  rtc.setDate(29, 0, 6, 0, 20);
   //set time (hr, min, sec)
-  //rtc.setTime(16, 24, 10);
+  rtc.setTime(16, 45, 00);
   Serial.print("Date set to : "); Serial.println(rtc.formatDate());
   Serial.print("Time set to: "); Serial.println(rtc.formatTime());
   Serial.print("Now reading back from chip\n");

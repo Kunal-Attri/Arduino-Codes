@@ -21,7 +21,7 @@ float TempC1=0.0;   // variable output
 float TempK2=0.0;
 float TempC2=0.0;
 void setup() {
-  Serial.begin(9600);
+  //Serial.begin(9600);
   beta=(log(RT1/RT2))/((1/T1)-(1/T2));
   Rinf=R0*exp(-beta/T0);
   //ssd
