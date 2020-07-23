@@ -21,7 +21,7 @@ void readKelvin(int pin) {
 	Vout = Vin * (float(analogRead(pin)) / 1024.0); // calc for ntc
 	Rout = (Rt * Vout / (Vin - Vout));
 	TempK = (beta / log(Rout / Rinf)); // calc for temperature
-	return TempK
+	return TempK;
 }
 
 void readFahrenheit(int pin) {
@@ -29,7 +29,7 @@ void readFahrenheit(int pin) {
 	Rout = (Rt * Vout / (Vin - Vout));
 	TempK = (beta / log(Rout / Rinf)); // calc for temperature
 	TempF = ((9 / 5) * (TempK - 273.15)) + 32;
-	return TempF
+	return TempF;
 }
 
 void readCelcius(int pin) {
@@ -37,7 +37,7 @@ void readCelcius(int pin) {
 	Rout = (Rt * Vout / (Vin - Vout));
 	TempK = (beta / log(Rout / Rinf)); // calc for temperature
 	TempC = TempK - 273.15;
-	return TempC
+	return TempC;
 }
 
 void readTemp(int pin) {
@@ -46,6 +46,6 @@ void readTemp(int pin) {
 	TempK = (beta / log(Rout / Rinf)); // calc for temperature
 	TempC = TempK - 273.15;
 	TempF = (TempC * 9 / 5) + 32;
-
-	return {TempC, TempF, TempK}
+	float Temp[3] = {TempC, TempF, TempK};
+	return Temp[3];
 }
