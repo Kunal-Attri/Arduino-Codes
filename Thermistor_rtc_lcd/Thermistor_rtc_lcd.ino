@@ -12,6 +12,9 @@ Rtc_Pcf8563 rtc;
 
 void setup() {
   lcd.begin(16, 2);
+  Serial.begin(9600);
+  pinMode(A6, INPUT);
+  pinMode(A7, INPUT);
   pinMode(A3, OUTPUT);
   digitalWrite(A3, HIGH);
   
@@ -105,19 +108,24 @@ void setup() {
   lcd.print("Temp");
   lcd.setCursor(6, 1);
   lcd.print("Time");
+  //Serial.println("DONE");
   delay(20*del);
-  
-  float Therm1{ readCelcius(A6) };
-  float Therm2{ readCelcius(A7) };
+  //Serial.println("Before reading");
+  float Therm1 { readCelcius(A7) };
+  //Serial.println(Therm1);
+  float Therm2 = Therm1;
+  //Serial.println(Therm2);
   Temperature= (Therm1 + Therm2) / 2;
+  //Serial.println(Temperature);
 }
 void loop() {
   if (temp_update == 15) {
-    float Therm1{ readCelcius(A6) };
-    float Therm2{ readCelcius(A7) };
+    float Therm1 { readCelcius(A7) };
+    float Therm2 = Therm1;
     Temperature= (Therm1 + Therm2) / 2;
     temp_update= 0;
   }
+  //Serial.println("in loop");
   lcd.setCursor(0, 0);
   lcd.print(rtc.getDay());
   lcd.print(date_sym);

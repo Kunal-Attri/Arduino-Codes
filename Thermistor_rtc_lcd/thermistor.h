@@ -35,6 +35,7 @@ float readCelcius(int pin) {
 	Rout = (Rt * Vout / (Vin - Vout));
 	TempK = (beta / log(Rout / Rinf)); // calc for temperature
 	TempC = TempK - 273.15;
+  //Serial.println("retuning");
 	return TempC;
 }
 
